@@ -6,7 +6,10 @@ require_once __DIR__ . '/../lib/BlueM/Tree.php';
 require_once __DIR__ . '/../lib/BlueM/Tree/Node.php';
 require_once __DIR__ . '/../lib/BlueM/Tree/InvalidParentException.php';
 
-use PHPUnit\Framework\TestCase;
+// Backward compatiblity fix
+if (!class_exists('\PHPUnit\Framework\TestCase')) {
+    class_alias('\PHPUnit_Framework_TestCase', '\PHPUnit\Framework\TestCase');
+}
 
 /**
  * Tests for BlueM\Tree. These are not really unit tests, as they test the class
@@ -14,7 +17,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @covers BlueM\Tree
  */
-class TreeTest extends TestCase
+class TreeTest extends \PHPUnit\Framework\TestCase
 {
 
     /**

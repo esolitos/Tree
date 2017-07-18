@@ -4,3 +4,6 @@ php:
   - 7
   - 7.1
   - hhvm
+
+install:
+  - travis_retry composer install --quiet --dev --no-interaction --prefer-dist
